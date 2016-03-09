@@ -1,6 +1,6 @@
-# Group18-2
+# Group18
 ------------
-ASSIGNMENT 2
+ASSIGNMENT 4
 ------------
 
-TRAVIS: [![Build Status](https://travis-ci.org/cs361-W16/Group18-2.svg?branch=master)](https://travis-ci.org/cs361-W16/Group18-2)
+TRAVIS: [![Build Status](https://travis-ci.org/cs361-W16/Blackjack-18.svg?branch=master)](https://travis-ci.org/cs361-W16/Blackjack-18)
