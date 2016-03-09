@@ -1,0 +1,35 @@
+diff a/Assignment2/src/main/java/assets/css/AcesUp.css b/Assignment2/src/main/java/assets/css/AcesUp.css	(rejected hunks)
+@@ -8,33 +8,6 @@
+ text-align:center;
+ }
+ 
+-h1.Heading {
+-    top:0;
+-    background-color: purple;
+-    font-family: Helvetica;
+-    font-size: 20px;
+-    text-align: center;
+-    width: 100%;
+-    color: white;
+-    padding: 50px;
+-}
+-
+-body {
+-    font-family: Helvetica;
+-    color: white;
+-    text-align: center;
+-}
+-
+-footer {
+-    position: fixed;
+-    bottom:0;
+-    background-color: purple;
+-    font-family: Helvetica;
+-    font-size: 20px;
+-    text-align: center;
+-    width: 100%;
+-    color: white;
+-}
+ .title{
+ font-weight: bold;
+ }
