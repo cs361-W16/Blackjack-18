@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-/**
- * Created by michaelhilton on 1/25/16.
- */
+
 public class Game {
     public boolean error;
 
@@ -22,7 +20,6 @@ public class Game {
         error=false;
     }
 
-
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
             deck.add(new Card(i,Suit.Clubs));
@@ -31,7 +28,6 @@ public class Game {
             deck.add(new Card(i,Suit.Spades));
         }
     }
-
 
     public void shuffle() {
         long seed = System.nanoTime();
@@ -107,9 +103,5 @@ public class Game {
 
     private void removeCardFromCol(int colFrom) {
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
-
-        //I think that should conflict...
-        //Did it work yet?
-
     }
 }
