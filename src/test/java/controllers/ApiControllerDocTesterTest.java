@@ -29,7 +29,7 @@ import static org.junit.Assert.assertThat;
 public class ApiControllerDocTesterTest extends NinjaDocTester {
     
     String URL_INDEX = "/";
-    String URL_ACES_UP = "/BlackJack";
+    String URL_BLACK_JACK = "/BlackJack";
     
     @Test
     public void testGetIndex() {
@@ -46,9 +46,9 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
     public void testAcesUp() {
         Response response = makeRequest(
                 Request.GET().url(
-                        testServerUrl().path(URL_ACES_UP)));
+                        testServerUrl().path(URL_BLACK_JACK)));
 
-        //assertThat(response.payload, containsString("Aces Up"));
+        assertThat(response.payload, containsString("BlackJack!"));
         assertThat(response.payload, containsString("columnOfCards"));
     }
 

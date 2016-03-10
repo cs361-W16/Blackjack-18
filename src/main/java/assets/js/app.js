@@ -22,6 +22,58 @@ $.getJSON("http://localhost:8080/game", function( data ) {
     game = data;
 });
 
+$("#HitBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/hitPlayer",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
+});
+
+$("#StayBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/stayHand",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
+});
+
+$("#DoubleBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/doubleBet",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
+});
+
+$("SplitBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/splitHand",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
+});
+
 
 var text = "\
     1.Four cards are dealt to four columns.Click on deal button will deal next four cards.<br>\
