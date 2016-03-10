@@ -8,7 +8,7 @@ public class basePlayer {
 
     public String name;
 
-    public.java.util.List<Card> hand = new ArrayList<>();
+    public java.util.List<Card> hand = new ArrayList<>();
 
     //abstract method
     public void hit() {}
