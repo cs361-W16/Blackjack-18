@@ -13,6 +13,16 @@ public class basePlayer {
     //abstract method
     public void hit() {}
 
+    public int currentHand() {
+        //return hand count, including Aces logic
+        return 0;
+    }
 
+    public boolean ifBusted() {
+        if (currentHand() > 21 ) {
+            return true; //we busted
+        } else
+            return false; //nope.jpg
+    }
 
 }
