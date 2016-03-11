@@ -1,5 +1,5 @@
 var game;
-
+var player;
 function display(game) {
     console.log(game);
     $( '.columnOfCards .cardLocation' ).html("");
@@ -15,6 +15,11 @@ function display(game) {
     if(game.error == true){
         $('#errorModal').modal('show');
     }
+
+}
+
+function showbet(game) {
+
 }
 
 $.getJSON("http://localhost:8080/game", function( data ) {
@@ -57,10 +62,6 @@ var Alert = new CustomAlert();
 // Wallet and Betting
 //
 
-var wallet = $("#walletValue");
-var bet = $("#betValue");
-console.log('"' + wallet.text() + '"');
-console.log('"' + bet.text() + '"');
 
 
 //
@@ -102,6 +103,7 @@ $.ajax({
     type: "POST",
     url: "/doubleBet",
     data: JSON.stringify(game),
+
     success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
         game = data;
         display(data);},
@@ -129,11 +131,29 @@ $.ajax({
 
 $("#bet1").click(function(){
     // bet logic should go here
+$.ajax({
+    type: "POST",
+    url: "/bet1",
+    data: JSON.stringify(game),
+    success: function(data){
+    game = data;
+    alert(data); },
+    dataType:"html",
+    });
     console.log("bet1 test");
 });
 
 $("#bet5").click(function(){
     // bet logic should go here
+    $.ajax({
+        type: "POST",
+        url: "/bet5",
+        data: JSON.stringify(game),
+        success: function(data){
+        game = data;
+        alert(data); },
+        dataType:"html",
+        });
     console.log("bet5 test");
 });
 

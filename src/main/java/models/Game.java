@@ -18,6 +18,7 @@ public class Game {
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         error=false;
+        Player p = new Player();
     }
 
     public void buildDeck() {
@@ -35,7 +36,9 @@ public class Game {
     }
 
     public void dealFour() {
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < 2; i++){
+            cols.get(i).add(deck.get(deck.size()-1));
+            deck.remove(deck.size()-1);
             cols.get(i).add(deck.get(deck.size()-1));
             deck.remove(deck.size()-1);
         }
@@ -102,6 +105,10 @@ public class Game {
     }
 
     private void removeCardFromCol(int colFrom) {
-        this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
+        this.cols.get(colFrom).remove(this.cols.get(colFrom).size() - 1);
     }
 }
+
+
+
+
