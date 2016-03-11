@@ -32,8 +32,8 @@ public class ApplicationController {
         return Results.html();
     }
 
-    public Result acesUp() {
-        return Results.html().template("views/AcesUp/AcesUp.flt.html");
+    public Result blackJack() {
+        return Results.html().template("views/BlackJack/BlackJack.flt.html");
     }
     
     public Result gameGet(){
@@ -52,6 +52,26 @@ public class ApplicationController {
         }
         g.error=false;
         return Results.json().render(g);
+    }
+
+    //testing application controller, hit button pushes four cards into the current game
+    public Result hitPost(Context context, Game g) {
+        g.dealFour();
+        g.error=false;
+        return Results.json().render(g);
+    }
+
+    //function prototypes for application controller
+    public Result stayPost(Context context, Game g) {
+        return  Results.json().render(g);
+    }
+
+    public Result doublePost(Context context, Game g) {
+        return  Results.json().render(g);
+    }
+
+    public Result splitPost(Context context, Game g) {
+        return  Results.json().render(g);
     }
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
