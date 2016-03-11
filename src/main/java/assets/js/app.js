@@ -22,7 +22,6 @@ $.getJSON("http://localhost:8080/game", function( data ) {
     game = data;
 });
 
-
 var text = "\
     1.Four cards are dealt to four columns.Click on deal button will deal next four cards.<br>\
     2.A card can be removed when another card showing at the top of another column has the same suit and a higher value. (Example: a 2 of diamonds can be removed if a 6 of diamonds).<br>\
@@ -69,18 +68,61 @@ console.log('"' + bet.text() + '"');
 //
 
 $("#HitBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/hitPlayer",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
     // hit button logic should go here
     console.log("hit button test");
 });
+
 $("#StayBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/stayHand",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
     // stay button logic should go here
     console.log("stay test");
 });
+
 $("#DoubleBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/doubleBet",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
     // double button logic should go here
     console.log("double test");
 });
+
 $("#SplitBtn").click(function(){
+$.ajax({
+    type: "POST",
+    url: "/splitHand",
+    data: JSON.stringify(game),
+    success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+});
     // split button logic should go here
     console.log("split test");
 });
