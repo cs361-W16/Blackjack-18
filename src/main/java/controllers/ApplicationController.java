@@ -57,7 +57,7 @@ public class ApplicationController {
 
     //testing application controller, hit button pushes four cards into the current game
     public Result hitPost(Context context, Game g) {
-        g.dealFour();
+        g.dealOne();
         g.error=false;
         return Results.json().render(g);
     }

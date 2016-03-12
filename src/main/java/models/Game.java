@@ -35,9 +35,15 @@ public class Game {
     }
 
     public void dealFour() {
-        for(int i = 0; i < 2; i++){
-            cols.get(i).add(deck.get(deck.size()-1));
-            deck.remove(deck.size()-1);
+        for (int i = 0; i < 2; i++) {
+            cols.get(i).add(deck.get(deck.size() - 1));
+            deck.remove(deck.size() - 1);
+            cols.get(i).add(deck.get(deck.size() - 1));
+            deck.remove(deck.size() - 1);
+        }
+    }
+    public void dealOne() {
+        for(int i = 0; i < 1; i++){
             cols.get(i).add(deck.get(deck.size()-1));
             deck.remove(deck.size()-1);
         }

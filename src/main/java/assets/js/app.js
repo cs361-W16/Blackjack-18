@@ -1,5 +1,5 @@
 var game;
-var money = 200;
+var money = 100;
 var betVar= 0;
 var betAmount;
 
