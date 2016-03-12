@@ -1,5 +1,8 @@
 var game;
-var player;
+var money = 200;
+var betVar= 0;
+var betAmount;
+
 function display(game) {
     console.log(game);
     $( '.columnOfCards .cardLocation' ).html("");
@@ -18,9 +21,52 @@ function display(game) {
 
 }
 
-function showbet(game) {
 
+function bet(betAmount){
+if(money < betAmount){
+$('#errorModalbet').modal('show');
 }
+else{
+betVar = betVar + betAmount;
+money = money - betAmount;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
+}
+}
+
+function win(){
+money = money + betVar;
+betVar = 0;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
+}
+
+function lose(){
+money = money - betVar;
+betVar = 0;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
+}
+
+function double(){
+if(money < betVar){
+$('#errorModalbet').modal('show');
+}
+else{
+betVar = betVar + betVar;
+money = money - betVart;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
+}
+}
+
+function winByBJ(){
+money = money + 3/2* betVar;
+betVar = 0;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
+}
+
 
 $.getJSON("http://localhost:8080/game", function( data ) {
     display(data);
@@ -57,6 +103,7 @@ function CustomAlert(){
 	}
 }
 var Alert = new CustomAlert();
+
 
 //
 // Wallet and Betting
@@ -131,16 +178,7 @@ $.ajax({
 
 $("#bet1").click(function(){
     // bet logic should go here
-$.ajax({
-    type: "POST",
-    url: "/bet1",
-    data: JSON.stringify(game),
-    success: function(data){
-    game = data;
-    alert(data); },
-    dataType:"html",
-    });
-    console.log("bet1 test");
+
 });
 
 $("#bet5").click(function(){

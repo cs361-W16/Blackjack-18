@@ -18,7 +18,6 @@ public class Game {
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         error=false;
-        Player p = new Player();
     }
 
     public void buildDeck() {

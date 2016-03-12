@@ -61,22 +61,7 @@ public class ApplicationController {
         g.error=false;
         return Results.json().render(g);
     }
-    public Result bet1(Context context, Player p) {
-        p.bet(1);
-        return Results.json().render(p);
-    }
-    public Result bet5(Context context, Player p) {
-        p.bet(5);
-        return Results.json().render(p);
-    }
-    public Result bet20(Context context, Player p) {
-        p.bet(20);
-        return Results.json().render(p);
-    }
-    public Result bet50(Context context, Player p) {
-        p.bet(50);
-        return Results.json().render(p);
-    }
+
 
     //function prototypes for application controller
     public Result stayPost(Context context, Game g) {

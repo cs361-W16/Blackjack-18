@@ -37,8 +37,6 @@ public class Routes implements ApplicationRoutes {
         router.POST().route("/stayHand").with(ApplicationController.class, "stayPost");
         router.POST().route("/doubleBet").with(ApplicationController.class, "doublePost");
         router.POST().route("/splitHand").with(ApplicationController.class, "splitPost");
-        router.POST().route("/bet1").with(ApplicationController.class, "bet1");
-        router.POST().route("/bet5").with(ApplicationController.class, "bet5");
         router.POST().route("/moveCard/{columnFrom}/{columnTo}").with(ApplicationController.class, "moveCard");
         router.POST().route("/removeCard/{column}").with(ApplicationController.class, "removeCard");
 

@@ -14,10 +14,10 @@
         </div>
         <div class="col-md-6 col-offset-md-1">
             <p>Place Bet: </p>
-            <button type="button" class="btn" id="bet1">$1</button>
-            <button type="button" class="btn" id="bet5">$5</button>
-            <button type="button" class="btn" id="bet20">$20</button>
-            <button type="button" class="btn" id="bet50">$50</button>
+            <button type="button" class="btn" id="bet1" onclick="bet(1)">$1</button>
+            <button type="button" class="btn" id="bet5" onclick="bet(5)">$5</button>
+            <button type="button" class="btn" id="bet20" onclick="bet(20)">$20</button>
+            <button type="button" class="btn" id="bet50" onclick="bet(50)">$50</button>
         </div>
     </div>
 </div>
@@ -107,7 +107,23 @@
         </div>
     </div>
 </div>
-</div>
+    <div id="errorModalbet" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content alert alert-danger">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Your money is not enough to bet..</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <footer>
