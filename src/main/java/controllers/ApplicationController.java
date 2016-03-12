@@ -17,6 +17,7 @@
 package controllers;
 
 import models.Game;
+import models.Player;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
@@ -60,6 +61,7 @@ public class ApplicationController {
         g.error=false;
         return Results.json().render(g);
     }
+
 
     //function prototypes for application controller
     public Result stayPost(Context context, Game g) {
