@@ -65,14 +65,33 @@ public class Game {
         }
     }
 
+    //elegant way of handling this
+    //http://stackoverflow.com/questions/837951/is-there-an-elegant-way-to-deal-with-the-ace-in-blackjack
     public int currentHand(List<Card> hand) {
         int i;
         int handValue = 0;
         int cardValue;
+        int numAces = 0;
 
-        for ( i = 0; i < hand.size(); i++) {
+        for ( i = 0; i < hand.size(); i++ ) {
             cardValue = hand.get(i).getValue();
+
+            //we count up how many aces we have
+            if(cardValue == 1) {
+                numAces += 1;
+                cardValue = 11;
+            }
+            //reduce the value of face cards
+            else if(cardValue >= 11) {
+                cardValue = 10;
+            }
             handValue += cardValue;
+        }
+        //subtract for each ace that would put us over 21.
+        if( handValue > 21 ) {
+            for( i = 0; i < numAces; i++ ) {
+                handValue -= 10;
+            }
         }
         return handValue;
     }
