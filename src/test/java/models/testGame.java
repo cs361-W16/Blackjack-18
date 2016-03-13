@@ -29,6 +29,16 @@ public class testGame {
         g.shuffle();
         assertNotEquals(2,g.deck.get(0).getValue());
     }
+
+    @Test
+    public void testCurrentHand() {
+        Game g = new Game();
+        g.buildDeck();
+        g.dealTwo();
+        //finish tests
+
+
+    }
 /*
     @Test
     public void testGameStart(){

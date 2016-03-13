@@ -13,14 +13,12 @@ public class Player extends basePlayer {
     public Player() {
         playerHand = new ArrayList<>();
     }
-    public void hit(List<Card> deck) {
-        playerHand.add(deck.get(deck.size()-1));
-        deck.remove(deck.size()-1);
+    public void hit() {
 
     }
-    public void stay() {
+    public boolean stay() {
         //end player turn, resolve dealer's turn.
-        //resolveGame();
+       return true;
 
     }
 }

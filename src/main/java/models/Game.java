@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 
@@ -48,21 +49,31 @@ public class Game {
         }
     }
 
+    //player hit function
     public void dealOne() {
         cols.get(0).add(deck.get(deck.size() - 1));
         deck.remove(deck.size() - 1);
     }
 
+    //deals out the rest of the cards to the dealer, if they are below 17
     public void resolveGame() {
-        int i = 5;
-        while (i < newDealer.hitLimit) {
-            cols.get(1).add(deck.get(deck.size() - 1));
-            deck.remove(deck.size() - 1);
-            i += 5;
+        if (newPlayer.stay()) {
+            while (currentHand(cols.get(1)) < newDealer.hitLimit) {
+                cols.get(1).add(deck.get(deck.size() - 1));
+                deck.remove(deck.size() - 1);
+            }
         }
     }
 
-    public int currentHand() {
-        return currentHand() + 5;
+    public int currentHand(List<Card> hand) {
+        int i;
+        int handValue = 0;
+        int cardValue;
+
+        for ( i = 0; i < hand.size(); i++) {
+            cardValue = hand.get(i).getValue();
+            handValue += cardValue;
+        }
+        return handValue;
     }
 }
