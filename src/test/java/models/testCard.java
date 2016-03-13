@@ -19,7 +19,7 @@ public class testCard {
         Card c = new Card(5,Suit.Clubs);
         assertEquals("5Clubs",c.toString());
     }
-
+/*
     @Test
     public void testMoveCard(){
         Game g = new Game();
@@ -30,7 +30,7 @@ public class testCard {
         g.move(0,2);
         assertEquals(1,g.cols.get(2).size());
         assertEquals(0,g.cols.get(0).size());
-    }
+    }*/
 
 
 }

@@ -29,7 +29,7 @@ public class testGame {
         g.shuffle();
         assertNotEquals(2,g.deck.get(0).getValue());
     }
-
+/*
     @Test
     public void testGameStart(){
         Game g = new Game();
@@ -61,7 +61,7 @@ public class testGame {
         g.remove(2);
         assertEquals(0,g.cols.get(2).size());
     }
-
+*/
 
 
 }
