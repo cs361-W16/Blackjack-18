@@ -18,14 +18,31 @@ function display(game) {
     $("#pTotal").html(game.playerTotal);
     $("#dTotal").html(game.dealerTotal);
 
-    if(game.playerTotal > 21)
+
+
+    if(game.isDone)
     {
-        $("#pTotal").append("<h4>BUSTED</h4>")
         // disable all buttons
         $("#HitBtn").prop("disabled",true);
         $("#StayBtn").prop("disabled",true);
         $("#DoubleBtn").prop("disabled",true);
         $("#SplitBtn").prop("disabled",true);
+
+        if(game.playerTotal > 21)
+        {
+            lose();
+            $("#pTotal").append("<h4>BUSTED</h4>")
+        }
+        else if( game.playerTotal > game.dealerTotal && game.playerTotal <= 21 || game.dealerTotal > 21)
+        {
+            win();
+            $("#pTotal").append("<h4>You Win!</h4>")
+        }
+        else
+        {
+            lose();
+            $("#pTotal").append("<h4>You Lose</h4>")
+        }
 
     }
 

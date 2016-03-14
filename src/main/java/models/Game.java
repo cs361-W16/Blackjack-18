@@ -12,6 +12,7 @@ public class Game {
     public Player newPlayer;
     public int playerTotal;
     public int dealerTotal;
+    public boolean isDone;
 
     public java.util.List<Card> deck = new ArrayList<>();
 
@@ -62,6 +63,7 @@ public class Game {
         playerTotal = currentHand(cols.get(0));
         if(playerTotal > 21) {
             resolveGame();
+            isDone = true;
         }
     }
 
@@ -73,6 +75,7 @@ public class Game {
                 deck.remove(deck.size() - 1);
             }
             dealerTotal = currentHand(cols.get(1));
+            isDone = true;
         }
     }
 
