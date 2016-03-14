@@ -31,8 +31,9 @@ betVar = betVar + betAmount;
 money = money - betAmount;
 document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
+    }
 }
-}
+
 function betCheck(){
 if(betVar < 2){
 $('#errorModalbetcheck').modal('show');
@@ -40,10 +41,18 @@ $('#errorModalbetcheck').modal('show');
 else{
 $( "#GameContainer" ).show();
 $( "#StartGame" ).hide();
+    }
 }
-}
-function win(){
+
+function clearbet(){
 money = money + betVar;
+betVar = 0;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
+}
+
+function win(){
+money = money + 2*betVar;
 betVar = 0;
 document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
@@ -69,7 +78,7 @@ document.getElementById("walletValue").innerHTML = money;
 }
 
 function winByBJ(){
-money = money + 3/2* betVar;
+money = money + 3* betVar;
 betVar = 0;
 document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
