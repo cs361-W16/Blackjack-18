@@ -42,16 +42,9 @@ public class ApplicationController {
         g.buildDeck();
         g.shuffle();
         g.dealTwo();
+        g.dealTwo();
         g.error = false;
 
-        return Results.json().render(g);
-    }
-
-    public Result dealPost(Context context, Game g) {
-        if(context.getRequestPath().contains("deal")){
-            g.dealTwo();
-        }
-        g.error=false;
         return Results.json().render(g);
     }
 
@@ -69,6 +62,13 @@ public class ApplicationController {
     public Result stayPost(Context context, Game g) {
         if(context.getRequestPath().contains("stay")){
             g.resolveGame();
+        }
+        return  Results.json().render(g);
+    }
+
+    public Result newGamePost(Context context, Game g) {
+        if(context.getRequestPath().contains("new")) {
+           g.newGame();
         }
         return  Results.json().render(g);
     }
