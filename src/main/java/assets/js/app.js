@@ -183,15 +183,6 @@ $("#bet1").click(function(){
 
 $("#bet5").click(function(){
     // bet logic should go here
-    $.ajax({
-        type: "POST",
-        url: "/bet5",
-        data: JSON.stringify(game),
-        success: function(data){
-        game = data;
-        alert(data); },
-        dataType:"html",
-        });
     console.log("bet5 test");
 });
 
