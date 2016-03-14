@@ -15,6 +15,36 @@ function display(game) {
         $( '#c1 .l'+key ).html(val.value + val.suit);
     });
 
+        $("#pTotal").html(game.playerTotal);
+        $("#dTotal").html(game.dealerTotal);
+
+
+        if(game.isDone)
+        {
+            // disable all buttons
+            $("#HitBtn").prop("disabled",true);
+            $("#StayBtn").prop("disabled",true);
+            $("#DoubleBtn").prop("disabled",true);
+            $("#SplitBtn").prop("disabled",true);
+
+            if(game.playerTotal > 21)
+            {
+                lose();
+                $("#pTotal").append("<h4>BUSTED</h4>")
+            }
+            else if( game.playerTotal > game.dealerTotal && game.playerTotal <= 21 || game.dealerTotal > 21)
+            {
+                win();
+                $("#pTotal").append("<h4>You Win!</h4>")
+            }
+            else
+            {
+                lose();
+                $("#pTotal").append("<h4>You Lose</h4>")
+            }
+
+        }
+
     if(game.error == true){
         $('#errorModal').modal('show');
     }
@@ -218,4 +248,13 @@ $("#bet50").click(function(){
 
 $(document).ready(function() {
     $( "#GameContainer" ).hide();
+    $( "#StartGame" ).click(function() {
+        $( "#GameContainer" ).show();
+        $( "#StartGame" ).hide();
+        // Disable bet buttons
+        $("#bet1").prop("disabled",true);
+        $("#bet5").prop("disabled",true);
+        $("#bet20").prop("disabled",true);
+        $("#bet50").prop("disabled",true);
+    });
 });
