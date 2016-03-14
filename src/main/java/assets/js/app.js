@@ -33,7 +33,15 @@ document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
 }
 }
-
+function betCheck(){
+if(betVar < 2){
+$('#errorModalbetcheck').modal('show');
+}
+else{
+$( "#GameContainer" ).show();
+$( "#StartGame" ).hide();
+}
+}
 function win(){
 money = money + betVar;
 betVar = 0;
@@ -199,8 +207,4 @@ $("#bet50").click(function(){
 
 $(document).ready(function() {
     $( "#GameContainer" ).hide();
-    $( "#StartGame" ).click(function() {
-        $( "#GameContainer" ).show();
-        $( "#StartGame" ).hide();
-    });
 });
