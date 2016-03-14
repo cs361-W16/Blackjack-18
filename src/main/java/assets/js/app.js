@@ -62,11 +62,28 @@ betVar = betVar + betAmount;
 money = money - betAmount;
 document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
+    }
 }
+
+function betCheck(){
+if(betVar < 2){
+$('#errorModalbetcheck').modal('show');
+}
+else{
+$( "#GameContainer" ).show();
+$( "#StartGame" ).hide();
+    }
+}
+
+function clearbet(){
+money = money + betVar;
+betVar = 0;
+document.getElementById("betValue").innerHTML =  betVar;
+document.getElementById("walletValue").innerHTML = money;
 }
 
 function win(){
-money = money + betVar;
+money = money + 2*betVar;
 betVar = 0;
 document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
@@ -92,7 +109,7 @@ document.getElementById("walletValue").innerHTML = money;
 }
 
 function winByBJ(){
-money = money + 3/2* betVar;
+money = money + 3* betVar;
 betVar = 0;
 document.getElementById("betValue").innerHTML =  betVar;
 document.getElementById("walletValue").innerHTML = money;
@@ -233,10 +250,10 @@ $(document).ready(function() {
     $( "#StartGame" ).click(function() {
         $( "#GameContainer" ).show();
         $( "#StartGame" ).hide();
+        // Disable bet buttons
         $("#bet1").prop("disabled",true);
         $("#bet5").prop("disabled",true);
         $("#bet20").prop("disabled",true);
         $("#bet50").prop("disabled",true);
-
     });
 });
