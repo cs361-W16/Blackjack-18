@@ -17,13 +17,11 @@ public class Game {
 
 
     public Game() {
-        newPlayer = new Player();
-        newDealer = new Dealer();
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
-        buildDeck();
-        shuffle();
-        dealTwo();
+       // buildDeck();
+        //shuffle();
+        //dealTwo();
         error = false;
     }
 

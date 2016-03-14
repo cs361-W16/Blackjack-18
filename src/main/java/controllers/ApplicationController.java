@@ -42,6 +42,7 @@ public class ApplicationController {
         g.buildDeck();
         g.shuffle();
         g.dealTwo();
+        g.dealTwo();
         g.error = false;
 
         return Results.json().render(g);
