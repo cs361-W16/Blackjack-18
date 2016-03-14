@@ -55,9 +55,31 @@ public class testGame {
     @Test
     public void testNewGame() {
         Game g = new Game();
+        g.buildDeck();
+        g.shuffle();
+        g.dealTwo();
+        assertEquals(1,g.cols.get(0).size());
+        assertEquals(1,g.cols.get(1).size());
+        g.newGame();
+        assertEquals(2,g.cols.get(0).size());
+        assertEquals(2,g.cols.get(1).size());
 
     }
 
+    @Test
+    public void testResolveGame() {
+        Game g = new Game();
+        g.buildDeck();
+        g.cols.get(1).add(new Card(9, Suit.Diamonds));
+        g.cols.get(1).add(new Card(7, Suit.Diamonds));
+        assertEquals(16, g.currentHand(g.cols.get(1)));
+        assertEquals(52, g.deck.size());
+        g.resolveGame();
+        assertEquals(51, g.deck.size());
+        assertEquals(3, g.cols.get(1).size());
+
+
+    }
 /*
     @Test
     public void testCustomDeal(){
