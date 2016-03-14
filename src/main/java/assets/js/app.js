@@ -15,6 +15,20 @@ function display(game) {
         $( '#c1 .l'+key ).html(val.value + val.suit);
     });
 
+    $("#pTotal").html(game.playerTotal);
+    $("#dTotal").html(game.dealerTotal);
+
+    if(game.playerTotal > 21)
+    {
+        $("#pTotal").append("<h4>BUSTED</h4>")
+        // disable all buttons
+        $("#HitBtn").prop("disabled",true);
+        $("#StayBtn").prop("disabled",true);
+        $("#DoubleBtn").prop("disabled",true);
+        $("#SplitBtn").prop("disabled",true);
+
+    }
+
     if(game.error == true){
         $('#errorModal').modal('show');
     }
@@ -202,5 +216,10 @@ $(document).ready(function() {
     $( "#StartGame" ).click(function() {
         $( "#GameContainer" ).show();
         $( "#StartGame" ).hide();
+        $("#bet1").prop("disabled",true);
+        $("#bet5").prop("disabled",true);
+        $("#bet20").prop("disabled",true);
+        $("#bet50").prop("disabled",true);
+
     });
 });
