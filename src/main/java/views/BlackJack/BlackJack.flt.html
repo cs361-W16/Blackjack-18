@@ -18,11 +18,12 @@
             <button type="button" class="btn" id="bet5" onclick="bet(5)">$5</button>
             <button type="button" class="btn" id="bet20" onclick="bet(20)">$20</button>
             <button type="button" class="btn" id="bet50" onclick="bet(50)">$50</button>
+            <button type="button" class="btn" id="clearbet" onclick="clearbet()">Clear bet</button>
         </div>
     </div>
 </div>
 
-<button class="btn" id="StartGame">DEAL</button>
+<button class="btn" id="StartGame" onclick="betCheck()">DEAL</button>
 
 <div id="GameContainer">
 <table align="center" id="tableContainer">
@@ -88,7 +89,7 @@
     </div>
 </div>
 <button class="btn btn-info" onclick="Alert.render(text)">Help</button>
-
+</div>
 <!-- Error Modal -->
 <div id="errorModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -124,7 +125,23 @@
             </div>
         </div>
     </div>
-
+    <div id="errorModalbetcheck" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content alert alert-danger">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>In order to start the game you need place bet at least $2.</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <footer>
     <p>Assignment 4</p>
