@@ -6,13 +6,6 @@ import java.util.ArrayList;
  */
 public class basePlayer {
 
-    public String name;
-
-    public java.util.List<Card> hand = new ArrayList<>();
-
-    //abstract method
-    public void hit() {}
-
     public int currentHand() {
         //return hand count, including Aces logic
         return 0;
