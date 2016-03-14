@@ -31,6 +31,16 @@ public class testGame {
     }
 
     @Test
+    public void testCurrentHand() {
+        Game g = new Game();
+        g.buildDeck();
+        g.dealTwo();
+        //finish tests
+
+
+    }
+/*
+    @Test
     public void testGameStart(){
         Game g = new Game();
         g.buildDeck();
@@ -61,7 +71,7 @@ public class testGame {
         g.remove(2);
         assertEquals(0,g.cols.get(2).size());
     }
-
+*/
 
 
 }

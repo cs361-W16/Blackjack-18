@@ -41,7 +41,7 @@ public class ApplicationController {
         Game g = new Game();
         g.buildDeck();
         g.shuffle();
-        g.dealFour();
+        g.dealTwo();
         g.error = false;
 
         return Results.json().render(g);
@@ -49,7 +49,7 @@ public class ApplicationController {
 
     public Result dealPost(Context context, Game g) {
         if(context.getRequestPath().contains("deal")){
-            g.dealFour();
+            g.dealTwo();
         }
         g.error=false;
         return Results.json().render(g);
@@ -57,7 +57,9 @@ public class ApplicationController {
 
     //testing application controller, hit button pushes four cards into the current game
     public Result hitPost(Context context, Game g) {
-        g.dealOne();
+        if(context.getRequestPath().contains("hit")){
+            g.dealOne();
+        }
         g.error=false;
         return Results.json().render(g);
     }
@@ -65,6 +67,9 @@ public class ApplicationController {
 
     //function prototypes for application controller
     public Result stayPost(Context context, Game g) {
+        if(context.getRequestPath().contains("stay")){
+            g.resolveGame();
+        }
         return  Results.json().render(g);
     }
 
@@ -75,7 +80,7 @@ public class ApplicationController {
     public Result splitPost(Context context, Game g) {
         return  Results.json().render(g);
     }
-
+/*
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
         g.remove(colNumber);
         return  Results.json().render(g);
@@ -85,6 +90,6 @@ public class ApplicationController {
         g.move(colFrom,colTo);
         g.error=false;
         return  Results.json().render(g);
-    }
+    }*/
 
 }
