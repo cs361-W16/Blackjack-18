@@ -10,6 +10,9 @@ public class Game {
     public boolean error;
     public Dealer newDealer;
     public Player newPlayer;
+    public int playerTotal;
+    public int dealerTotal;
+    public boolean isDone;
 
     public java.util.List<Card> deck = new ArrayList<>();
 
@@ -19,6 +22,8 @@ public class Game {
     public Game() {
         newPlayer = new Player();
         newDealer = new Dealer();
+        playerTotal = 0;
+        dealerTotal = 0;
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         buildDeck();
@@ -47,12 +52,19 @@ public class Game {
             cols.get(i).add(deck.get(deck.size() - 1));
             deck.remove(deck.size() - 1);
         }
+        playerTotal = currentHand(cols.get(0));
+        dealerTotal = currentHand(cols.get(1));
     }
 
     //player hit function
     public void dealOne() {
         cols.get(0).add(deck.get(deck.size() - 1));
         deck.remove(deck.size() - 1);
+        playerTotal = currentHand(cols.get(0));
+        if(playerTotal > 21) {
+            resolveGame();
+            isDone = true;
+        }
     }
 
     //deals out the rest of the cards to the dealer, if they are below 17
@@ -62,6 +74,8 @@ public class Game {
                 cols.get(1).add(deck.get(deck.size() - 1));
                 deck.remove(deck.size() - 1);
             }
+            dealerTotal = currentHand(cols.get(1));
+            isDone = true;
         }
     }
 
