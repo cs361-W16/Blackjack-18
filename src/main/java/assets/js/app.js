@@ -145,10 +145,10 @@ $.ajax({
     console.log("stay test");
 });
 
-$("#DoubleBtn").click(function(){
+$("#NewBtn").click(function(){
 $.ajax({
     type: "POST",
-    url: "/doubleBet",
+    url: "/newGame",
     data: JSON.stringify(game),
 
     success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
@@ -175,6 +175,8 @@ $.ajax({
     // split button logic should go here
     console.log("split test");
 });
+
+
 
 $("#bet1").click(function(){
     // bet logic should go here

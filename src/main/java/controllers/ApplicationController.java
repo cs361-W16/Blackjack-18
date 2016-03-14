@@ -47,14 +47,6 @@ public class ApplicationController {
         return Results.json().render(g);
     }
 
-    public Result dealPost(Context context, Game g) {
-        if(context.getRequestPath().contains("deal")){
-            g.dealTwo();
-        }
-        g.error=false;
-        return Results.json().render(g);
-    }
-
     //testing application controller, hit button pushes four cards into the current game
     public Result hitPost(Context context, Game g) {
         if(context.getRequestPath().contains("hit")){
@@ -69,6 +61,13 @@ public class ApplicationController {
     public Result stayPost(Context context, Game g) {
         if(context.getRequestPath().contains("stay")){
             g.resolveGame();
+        }
+        return  Results.json().render(g);
+    }
+
+    public Result newGamePost(Context context, Game g) {
+        if(context.getRequestPath().contains("new")) {
+           g.newGame();
         }
         return  Results.json().render(g);
     }

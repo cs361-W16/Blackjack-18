@@ -95,4 +95,12 @@ public class Game {
         }
         return handValue;
     }
+    public void newGame() {
+        cols.get(0).clear();
+        cols.get(1).clear();
+        buildDeck();
+        shuffle();
+        dealTwo();
+        dealTwo();
+    }
 }
